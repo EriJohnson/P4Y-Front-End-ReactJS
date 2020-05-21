@@ -27,7 +27,7 @@ export default function DeleteDialog(props) {
   return (
     <>
       <Button variant='outlined' onClick={handleClickOpen}>
-        <FiTrash2 size={16} color='##474753' />
+        <FiTrash2 size={16} color='#474753' />
       </Button>
       <Dialog
         open={open}
@@ -40,7 +40,7 @@ export default function DeleteDialog(props) {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id='alert-dialog-description'>
-            Somente apague um pedido se o mesmo pertencer a você.
+            Atencão! Somente apague um pedido se o mesmo pertencer a você!
           </DialogContentText>
         </DialogContent>
         <DialogActions>

@@ -5,6 +5,8 @@ import { FiArrowLeft } from 'react-icons/fi'
 import '../../global.css'
 import './styles.css'
 
+import LogoImg from '../../assets/logo.svg'
+
 import api from '../../services/api'
 
 export default function NewIncident() {
@@ -25,6 +27,7 @@ export default function NewIncident() {
       await api.post('/prayer-requests', data, {
         headers: { Authorization: sessionToken },
       })
+      alert('Pedido cadastrado com sucesso!')
       history.push('/pedidos')
     } catch (err) {
       alert('Erro ao cadastrar, por favor tente novamente')
@@ -34,12 +37,10 @@ export default function NewIncident() {
   return (
     <div className='new-incident-container'>
       <div className='content'>
+        <img src={LogoImg} alt='Logo de uma mão em sinal de oração' />
         <section>
-          <h1>Cadastrar novo pedido</h1>
-          <p>
-            Descreva o seu pedido de oração para que toda a igreja possa orar
-            juntos
-          </p>
+          <h1>Cadastre o seu pedido</h1>
+          <p>Escreva o seu pedido de oração para que oremos juntos</p>
         </section>
 
         <form onSubmit={handleNewRequest}>
@@ -47,11 +48,13 @@ export default function NewIncident() {
             placeholder='Nome'
             value={author}
             onChange={e => setAuthor(e.target.value)}
+            maxLength='25'
           />
           <textarea
-            placeholder='Descreva o seu pedido de oração...'
+            placeholder='Pedido de oração...'
             value={content}
             onChange={e => setContent(e.target.value)}
+            maxLength='320'
           />
 
           <button className='button' type='submit'>

@@ -39,25 +39,25 @@ export default function PrayerRequests() {
   return (
     <div className='requests-container'>
       <header>
-        <img src={LogoImg} alt='Be The Hero' />
+        <img src={LogoImg} alt='Logo de uma mão em sinal de oração' />
         <span>Seja bem vindo(a)</span>
       </header>
       <Link className='AddNewPrayerRequest' to='/novo-pedido'>
         Cadastrar novo Pedido
       </Link>
-      {requestsList.length === 0 && <h1>Nenhum pedido de oração cadastrado</h1>}
-      {requestsList.length !== 0 && <h1>Pedidos Cadastrados</h1>}
+      <h1>Pedidos Cadastrados</h1>
       <ul>
         {requestsList.map(request => (
           <li key={request._id}>
             <strong>NOME:</strong>
             <p>{request.author}</p>
 
-            <strong>DESCRIÇÃO:</strong>
+            <strong>PEDIDO:</strong>
             <p>{request.content}</p>
 
             <strong>DATA:</strong>
             <p>{moment(request.createdAt).format('LLL')}</p>
+            <p>{moment(request.createdAt).startOf('minutes').fromNow()}</p>
             <DeleteDialog
               open={false}
               handleConfirm={() => handleDeleteRequest(request._id)}
