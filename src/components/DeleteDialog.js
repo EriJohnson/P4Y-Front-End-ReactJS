@@ -40,7 +40,7 @@ export default function DeleteDialog(props) {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id='alert-dialog-description'>
-            Somente apague um pedido se o mesmo pertencer a você!
+            Por favor, somente apague um pedido se ele pertencer a você!
           </DialogContentText>
         </DialogContent>
         <DialogActions>

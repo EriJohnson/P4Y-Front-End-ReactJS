@@ -19,7 +19,7 @@
 }
 
 .requests-container header img {
-  height: 64px;
+  height: 128px;
 }
 
 .requests-container header a {
@@ -65,13 +65,13 @@
   padding: 24px;
   border-radius: 8px;
   position: relative;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   min-width: 56vw;
 }
 
 .requests-container ul li button {
   position: absolute;
-  right: 2px;
+  right: 0px;
   top: 18px;
   border: 1px;
 }

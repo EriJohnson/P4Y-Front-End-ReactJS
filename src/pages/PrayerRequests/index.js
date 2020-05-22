@@ -40,19 +40,17 @@ export default function PrayerRequests() {
     <div className='requests-container'>
       <header>
         <img src={LogoImg} alt='Logo de uma mão em sinal de oração' />
-        <span>Seja bem vindo(a)</span>
+        {/* <span>Seja bem vindo(a)</span> */}
       </header>
       <Link className='AddNewPrayerRequest' to='/novo-pedido'>
-        Cadastrar novo Pedido
+        Cadastrar pedido
       </Link>
       <h2>Pedidos Cadastrados</h2>
       <ul>
         {requestsList.map(request => (
           <li key={request._id}>
-            <strong>NOME:</strong>
-            <p>{request.author}</p>
+            <strong>{request.author}</strong>
 
-            <strong>PEDIDO:</strong>
             <p>{request.content}</p>
             <span className='relativeTime'>
               {moment(request.createdAt).startOf('minutes').fromNow()}
