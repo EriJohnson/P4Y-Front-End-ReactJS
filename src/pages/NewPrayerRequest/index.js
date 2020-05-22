@@ -36,36 +36,38 @@ export default function NewIncident() {
 
   return (
     <div className='new-incident-container'>
-      <div className='content'>
-        <img src={LogoImg} alt='Logo de uma mão em sinal de oração' />
-        <section>
-          <h1>Cadastre o seu pedido</h1>
-          <p>Escreva o seu pedido de oração para que oremos juntos</p>
-        </section>
+      <img
+        className='logo'
+        src={LogoImg}
+        alt='Logo de uma mão em sinal de oração'
+      />
+      <section>
+        <h1>Cadastre o seu pedido</h1>
+        <p>Escreva o seu pedido de oração para que oremos juntos</p>
+      </section>
 
-        <form onSubmit={handleNewRequest}>
-          <input
-            placeholder='Nome'
-            value={author}
-            onChange={e => setAuthor(e.target.value)}
-            maxLength='25'
-          />
-          <textarea
-            placeholder='Pedido de oração...'
-            value={content}
-            onChange={e => setContent(e.target.value)}
-            maxLength='320'
-          />
+      <form onSubmit={handleNewRequest}>
+        <input
+          placeholder='Nome'
+          value={author}
+          onChange={e => setAuthor(e.target.value)}
+          maxLength='25'
+        />
+        <textarea
+          placeholder='Pedido de oração...'
+          value={content}
+          onChange={e => setContent(e.target.value)}
+          maxLength='320'
+        />
 
-          <button className='button' type='submit'>
-            Cadastrar
-          </button>
-          <Link className='back-link' to='/pedidos'>
-            <FiArrowLeft size={16} color='#8c0000' />
-            Voltar para todos os pedidos
-          </Link>
-        </form>
-      </div>
+        <button className='button' type='submit'>
+          Cadastrar
+        </button>
+        <Link className='back-link' to='/pedidos'>
+          <FiArrowLeft size={16} color='#8c0000' />
+          Voltar para todos os pedidos
+        </Link>
+      </form>
     </div>
   )
 }

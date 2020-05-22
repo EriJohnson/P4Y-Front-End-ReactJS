@@ -71,6 +71,7 @@
   position: relative;
   margin-bottom: 24px;
   min-width: 56vw;
+  max-width: 96vw;
 }
 
 .requests-container ul li button {
@@ -140,6 +141,7 @@
   }
   .requests-container ul li {
     min-width: 88vw;
+    max-width: 96vw;
   }
 }
 
@@ -151,5 +153,14 @@
   }
   .requests-container ul li {
     min-width: 88vw;
+    max-width: 96vw;
+  }
+  .requests-container ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    max-width: 96vw;
+    padding: 24px;
   }
 }
