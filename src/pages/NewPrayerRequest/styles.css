@@ -19,10 +19,14 @@
   align-items: center;
 }
 
+.new-incident-container .content img {
+  height: 16vh;
+}
+
 .new-incident-container .content section {
   width: 100%;
   max-width: 380px;
-  margin: 16px auto;
+  margin: 8px auto;
   text-align: center;
 }
 
@@ -79,8 +83,8 @@
   }
   .new-incident-container .content section h1 {
     color: #333;
-    font-size: 2.1em;
-    margin: 24px auto;
+    font-size: 1.5em;
+    margin: 8px auto;
   }
   .new-incident-container .content section p {
     font-size: 16px;

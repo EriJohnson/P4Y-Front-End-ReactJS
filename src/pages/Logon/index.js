@@ -29,7 +29,7 @@ export default function Logon() {
   return (
     <div className='logon-container'>
       <div className='logo'>
-        <img src={logoImg} alt='Be The Hero' />
+        <img src={logoImg} alt='Logo de uma mão em sinal de oração' />
       </div>
 
       <section className='form'>
@@ -55,10 +55,6 @@ export default function Logon() {
           <button className='button' type='submit'>
             Entrar
           </button>
-          {/* <Link className='back-link' to='/registrar'>
-            <FiLogIn size={16} color='#C2272D' />
-            Não tenho cadastro
-          </Link> */}
         </form>
       </section>
 
