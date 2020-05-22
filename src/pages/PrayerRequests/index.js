@@ -54,9 +54,6 @@ export default function PrayerRequests() {
 
             <strong>PEDIDO:</strong>
             <p>{request.content}</p>
-
-            <strong>DATA:</strong>
-            <p>{moment(request.createdAt).format('LL')}</p>
             <span className='relativeTime'>
               {moment(request.createdAt).startOf('minutes').fromNow()}
             </span>
