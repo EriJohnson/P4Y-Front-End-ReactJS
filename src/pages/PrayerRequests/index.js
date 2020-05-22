@@ -56,8 +56,10 @@ export default function PrayerRequests() {
             <p>{request.content}</p>
 
             <strong>DATA:</strong>
-            <p>{moment(request.createdAt).format('LLL')}</p>
-            <p>{moment(request.createdAt).startOf('minutes').fromNow()}</p>
+            <p>{moment(request.createdAt).format('LL')}</p>
+            <span className='relativeTime'>
+              {moment(request.createdAt).startOf('minutes').fromNow()}
+            </span>
             <DeleteDialog
               open={false}
               handleConfirm={() => handleDeleteRequest(request._id)}
