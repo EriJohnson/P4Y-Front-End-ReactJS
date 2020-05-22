@@ -37,6 +37,7 @@ export default function PrayerRequests() {
           Authorization: sessionToken,
         },
       })
+      alert('Pedido apagado com sucesso!')
       setRequestsList(requestsList.filter(request => request._id !== id))
     } catch (err) {
       alert('Erro ao deletar, por favor tente novamente')
