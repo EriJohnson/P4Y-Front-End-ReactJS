@@ -14,12 +14,19 @@ import api from '../../services/api'
 export default function PrayerRequests() {
   const [requestsList, setRequestsList] = useState([])
   const sessionToken = localStorage.getItem('sessionToken')
+  const [isLoading, setIsLoading] = useState(false)
+
+  const shouldDisplayLoader = isLoading
+  const shouldDisplayNoResults = !isLoading && !requestsList.length
+  const shouldDisplayList = !isLoading && requestsList.length > 0
 
   useEffect(() => {
+    setIsLoading(true)
     api
       .get('/prayer-requests', { headers: { Authorization: sessionToken } })
       .then(response => {
         setRequestsList(response.data)
+        setIsLoading(false)
       })
   }, [sessionToken])
 
@@ -40,12 +47,14 @@ export default function PrayerRequests() {
     <div className='requests-container'>
       <header>
         <img src={LogoImg} alt='Logo de uma mão em sinal de oração' />
-        {/* <span>Seja bem vindo(a)</span> */}
       </header>
       <Link className='AddNewPrayerRequest' to='/novo-pedido'>
         Cadastrar pedido
       </Link>
-      <h2>Pedidos Cadastrados</h2>
+      {shouldDisplayLoader && <h2>Aguarde um momento...</h2>}
+      {shouldDisplayNoResults && <h2>Nenhum pedido foi encontrado!</h2>}
+      {shouldDisplayList && <h2>Pedidos Cadastrados</h2>}
+
       <ul>
         {requestsList.map(request => (
           <li key={request._id}>
