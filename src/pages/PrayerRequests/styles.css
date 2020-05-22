@@ -46,6 +46,11 @@
   margin-bottom: 24px;
 }
 
+.requests-container h2 {
+  margin-top: 64px;
+  margin-bottom: 24px;
+}
+
 .requests-container ul {
   display: flex;
   flex-direction: column;

@@ -45,7 +45,7 @@ export default function PrayerRequests() {
       <Link className='AddNewPrayerRequest' to='/novo-pedido'>
         Cadastrar novo Pedido
       </Link>
-      <h1>Pedidos Cadastrados</h1>
+      <h2>Pedidos Cadastrados</h2>
       <ul>
         {requestsList.map(request => (
           <li key={request._id}>
