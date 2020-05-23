@@ -57,7 +57,7 @@ export default function NewIncident() {
           placeholder='Pedido de oração...'
           value={content}
           onChange={e => setContent(e.target.value)}
-          maxLength='320'
+          maxLength='1100'
         />
 
         <button className='button' type='submit'>
