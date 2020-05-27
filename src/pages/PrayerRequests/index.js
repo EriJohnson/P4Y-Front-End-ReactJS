@@ -21,6 +21,7 @@ export default function PrayerRequests() {
   const shouldDisplayList = !isLoading && requestsList.length > 0
 
   useEffect(() => {
+    setIsLoading(true)
     (async () => {
       const { data } = await api.get('/prayer-requests', {
         headers: { Authorization: sessionToken },
