@@ -21,13 +21,13 @@ export default function PrayerRequests() {
   const shouldDisplayList = !isLoading && requestsList.length > 0
 
   useEffect(() => {
-    setIsLoading(true)
-    api
-      .get('/prayer-requests', { headers: { Authorization: sessionToken } })
-      .then(response => {
-        setRequestsList(response.data)
-        setIsLoading(false)
+    (async () => {
+      const { data } = await api.get('/prayer-requests', {
+        headers: { Authorization: sessionToken },
       })
+      setRequestsList(data)
+      setIsLoading(false)
+    })()
   }, [sessionToken])
 
   async function handleDeleteRequest(id) {
@@ -40,6 +40,7 @@ export default function PrayerRequests() {
       alert('Pedido apagado com sucesso!')
       setRequestsList(requestsList.filter(request => request._id !== id))
     } catch (err) {
+      console.log(err)
       alert('Erro ao deletar, por favor tente novamente')
     }
   }
