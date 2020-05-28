@@ -21,11 +21,13 @@ export default function PrayerRequests() {
   const shouldDisplayList = !isLoading && requestsList.length > 0
 
   useEffect(() => {
-    setIsLoading(true)
     (async () => {
+      setIsLoading(true)
+
       const { data } = await api.get('/prayer-requests', {
         headers: { Authorization: sessionToken },
       })
+
       setRequestsList(data)
       setIsLoading(false)
     })()
