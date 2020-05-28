@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { BallClipRotate } from 'react-pure-loaders'
 
 import './styles.css'
 import '../../global.css'
 
 import logoImg from '../../assets/logo.svg'
+import logoMaanaim from '../../assets/maanaim-logo.svg'
 
 import api from '../../services/api'
 
@@ -25,6 +27,7 @@ export default function Logon() {
       setIsloading(false)
     } catch (err) {
       alert('Falha no login, por favor tente novamente')
+      setIsloading(false)
     }
   }
 
@@ -53,18 +56,21 @@ export default function Logon() {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-
-          {isLoading ? (
-            <h3>Por favor, aguarde...</h3>
-          ) : (
-            <button className='button' type='submit'>
-              Entrar
-            </button>
-          )}
+          <button className='button' type='submit'>
+            {isLoading ? (
+              <BallClipRotate color={'#ffffff'} loading={isLoading} />
+            ) : (
+              <p>Entrar</p>
+            )}
+          </button>
         </form>
       </section>
 
-      {/* <img src={heroesImg} alt="Heroes" /> */}
+      <img
+        src={logoMaanaim}
+        className='maanaim'
+        alt='Logo de uma mão em sinal de oração'
+      />
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { FiArrowLeft } from 'react-icons/fi'
+import { BallClipRotate } from 'react-pure-loaders'
 
 import '../../global.css'
 import './styles.css'
@@ -12,6 +13,7 @@ import api from '../../services/api'
 export default function NewIncident() {
   const [author, setAuthor] = useState('')
   const [content, setContent] = useState('')
+  const [isLoading, setIsloading] = useState(false)
   const sessionToken = localStorage.getItem('sessionToken')
   const history = useHistory()
 
@@ -24,12 +26,15 @@ export default function NewIncident() {
     }
 
     try {
+      setIsloading(true)
       await api.post('/prayer-requests', data, {
         headers: { Authorization: sessionToken },
       })
+      setIsloading(false)
       alert('Pedido cadastrado com sucesso!')
       history.push('/pedidos')
     } catch (err) {
+      setIsloading(false)
       alert('Erro ao cadastrar, por favor tente novamente')
     }
   }
@@ -61,7 +66,11 @@ export default function NewIncident() {
         />
 
         <button className='button' type='submit'>
-          Cadastrar
+          {isLoading ? (
+            <BallClipRotate color={'#ffffff'} loading={isLoading} />
+          ) : (
+            <p>Cadastrar</p>
+          )}
         </button>
         <Link className='back-link' to='/pedidos'>
           <FiArrowLeft size={16} color='#8c0000' />
