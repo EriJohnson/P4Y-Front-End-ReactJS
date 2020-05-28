@@ -11,16 +11,18 @@ import api from '../../services/api'
 export default function Logon() {
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
+  const [isLoading, setIsloading] = useState(false)
   const history = useHistory()
 
   async function handleLogin(e) {
     e.preventDefault()
 
     try {
+      setIsloading(true)
       const response = await api.post('users/login', { name, password })
-      localStorage.setItem('name', response.data.user.name)
       localStorage.setItem('sessionToken', response.data.token)
       history.push('/pedidos')
+      setIsloading(false)
     } catch (err) {
       alert('Falha no login, por favor tente novamente')
     }
@@ -40,7 +42,6 @@ export default function Logon() {
               aplicativo de pedidos de orações da Maanaim
             </p>
           </div>
-
           <input
             placeholder='Usuário'
             value={name}
@@ -52,9 +53,14 @@ export default function Logon() {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <button className='button' type='submit'>
-            Entrar
-          </button>
+
+          {isLoading ? (
+            <h3>Por favor, aguarde...</h3>
+          ) : (
+            <button className='button' type='submit'>
+              Entrar
+            </button>
+          )}
         </form>
       </section>
 
