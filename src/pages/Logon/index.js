@@ -6,7 +6,7 @@ import './styles.css'
 import '../../global.css'
 
 import logoImg from '../../assets/logo.svg'
-import logoMaanaim from '../../assets/maanaim-logo.svg'
+import churchLogo from '../../assets/maanaim-logo.svg'
 
 import api from '../../services/api'
 
@@ -67,8 +67,8 @@ export default function Logon() {
       </section>
 
       <img
-        src={logoMaanaim}
-        className='maanaim'
+        src={churchLogo}
+        className='churchLogo'
         alt='Logo de uma mão em sinal de oração'
       />
     </div>

@@ -21,7 +21,7 @@ export default function PrayerRequests() {
   const shouldDisplayList = !isLoading && requestsList.length > 0
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       setIsLoading(true)
 
       const { data } = await api.get('/prayer-requests', {
