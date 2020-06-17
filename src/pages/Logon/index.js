@@ -1,33 +1,33 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { BallClipRotate } from 'react-pure-loaders'
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { BallClipRotate } from 'react-pure-loaders';
 
-import './styles.css'
-import '../../global.css'
+import './styles.css';
+import '../../global.css';
 
-import logoImg from '../../assets/logo.svg'
-import churchLogo from '../../assets/maanaim-logo.svg'
+import logoImg from '../../assets/logo.svg';
+import churchLogo from '../../assets/igreja-logo.svg';
 
-import api from '../../services/api'
+import api from '../../services/api';
 
 export default function Logon() {
-  const [name, setName] = useState('')
-  const [password, setPassword] = useState('')
-  const [isLoading, setIsloading] = useState(false)
-  const history = useHistory()
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsloading] = useState(false);
+  const history = useHistory();
 
   async function handleLogin(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     try {
-      setIsloading(true)
-      const response = await api.post('users/login', { name, password })
-      localStorage.setItem('sessionToken', response.data.token)
-      history.push('/pedidos')
-      setIsloading(false)
+      setIsloading(true);
+      const response = await api.post('users/login', { name, password });
+      localStorage.setItem('sessionToken', response.data.token);
+      history.push('/pedidos');
+      setIsloading(false);
     } catch (err) {
-      alert('Falha no login, por favor tente novamente')
-      setIsloading(false)
+      alert('Falha no login, por favor tente novamente');
+      setIsloading(false);
     }
   }
 
@@ -72,5 +72,5 @@ export default function Logon() {
         alt='Logo de uma mão em sinal de oração'
       />
     </div>
-  )
+  );
 }
